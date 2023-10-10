@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.jpa.Entity.City;
+import com.springboot.jpa.Pojos.CityRequest;
 import com.springboot.jpa.Repository.CityRepository;
 import com.springboot.jpa.Service.CityService;
 
@@ -49,5 +50,9 @@ public class CityController {
 		
 	}
 	
-	
+	@PostMapping("/addnewCity")
+	public City addnewCity(@RequestBody CityRequest cityRequest) {
+		return cityService.addnewcity(cityRequest);
+		
+	}
 }

@@ -13,8 +13,9 @@ import com.springboot.jpa.Repository.CountriesRepository;
 @Service
 public class CountriesService {
 	
-	@Autowired
-	public CityRepository cityRepository;
+	//@Autowired
+	//public CityRepository cityRepository;
+	
 	@Autowired
 	public CountriesRepository countriesRepository;
 
@@ -25,5 +26,7 @@ public class CountriesService {
 	public Countries SaveCountriesInfo(Countries countries) {
 		return countriesRepository.save(countries);
 	}
+
+	
 
 }

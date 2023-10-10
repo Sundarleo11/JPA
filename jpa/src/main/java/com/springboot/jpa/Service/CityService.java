@@ -11,13 +11,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.springboot.jpa.Entity.City;
+
+import com.springboot.jpa.Entity.Countries;
+import com.springboot.jpa.Pojos.CityRequest;
 import com.springboot.jpa.Repository.CityRepository;
+import com.springboot.jpa.Repository.CountriesRepository;
 
 @Service
 public class CityService {
 
 	@Autowired
 	public CityRepository cityRepository;
+	
+	@Autowired
+	public CountriesService countriesService;
+	
+	@Autowired
+	public CountriesRepository countriesRepository;
 
 	public List<City> findallCity() {
 		return cityRepository.findAll();
@@ -44,6 +54,16 @@ public class CityService {
 	public Optional<City> DeleteCity(int id) {
 		cityRepository.deleteById(id);
 		return null;
+	}
+
+	public City addnewcity(CityRequest cityRequest) {
+		Optional<Countries> country =countriesRepository.findById(cityRequest.country_id);
+		City city=new City();
+		city.setCityname(cityRequest.cityname);
+		city.setCitycode(cityRequest.citycode);
+		city.setCountries(country.get());
+		
+		return cityRepository.save(city);
 	}
 
 }
