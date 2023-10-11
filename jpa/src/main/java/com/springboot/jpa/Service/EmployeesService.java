@@ -27,6 +27,12 @@ public class EmployeesService {
 		return empoyeesRepository.findById(id);
 	}
 
+	public List<Employees> getEmployeeInfo(int id) {
+		// TODO Auto-generated method stub
+		return empoyeesRepository.getByid(id);
+	}
+
+
 	/*public List<Employees> findAllEmployeeId(List<Employees> ids) {
 		// TODO Auto-generated method stub
 		return empoyeesRepository.findByAllId(ids);

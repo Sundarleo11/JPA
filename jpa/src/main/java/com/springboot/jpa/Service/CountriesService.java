@@ -27,6 +27,11 @@ public class CountriesService {
 		return countriesRepository.save(countries);
 	}
 
+	public List<Countries> geCounteryName(String name) {
+		// TODO Auto-generated method stub
+		return countriesRepository.getByName(name);
+	}
+
 	
 
 }

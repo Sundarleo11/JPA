@@ -16,6 +16,7 @@ public class Employees {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int employee_id;
+	@Column(name="employeename")
 	private String employee_name;
 	private String department;
 	private Date joiningdate;
