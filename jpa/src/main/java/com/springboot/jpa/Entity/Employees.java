@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "employees")
@@ -16,8 +18,9 @@ public class Employees {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int employee_id;
-	@Column(name="employeename")
 	private String employee_name;
+	
+	@NotNull(message="department name is required")
 	private String department;
 	private Date joiningdate;
 	private int age;
@@ -81,6 +84,17 @@ public class Employees {
 	}
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
+	}
+	@Override
+	public String toString() {
+		return "Employees [employee_id=" + employee_id + ", employee_name=" + employee_name + ", department="
+				+ department + ", joiningdate=" + joiningdate + ", age=" + age + ", address=" + address + ", salary="
+				+ salary + ", lefton=" + lefton + ", leftjob=" + leftjob + ", getDepartment()=" + getDepartment()
+				+ ", getJoiningdate()=" + getJoiningdate() + ", getAge()=" + getAge() + ", getAddress()=" + getAddress()
+				+ ", getSalary()=" + getSalary() + ", getLefton()=" + getLefton() + ", isLeftjob()=" + isLeftjob()
+				+ ", getEmployee_name()=" + getEmployee_name() + ", getEmployee_id()=" + getEmployee_id()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 	
 	

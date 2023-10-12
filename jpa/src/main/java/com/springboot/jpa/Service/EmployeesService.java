@@ -3,6 +3,8 @@ package com.springboot.jpa.Service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +18,12 @@ public class EmployeesService {
 	public EmpoyeesRepository empoyeesRepository;
 
 	public List<Employees> addEmployee(List<Employees> employees) {
+
 		return empoyeesRepository.saveAll(employees);
 	}
 
 	public List<Employees> getAllEmployee() {
-		return  empoyeesRepository.findAll();
+		return empoyeesRepository.findAll();
 	}
 
 	public List<Employees> findEmployeeId(int id) {
@@ -32,9 +35,9 @@ public class EmployeesService {
 		return empoyeesRepository.getByid(id);
 	}
 
-
-	/*public List<Employees> findAllEmployeeId(List<Employees> ids) {
+	public Employees newEmployee(Employees employees) {
 		// TODO Auto-generated method stub
-		return empoyeesRepository.findByAllId(ids);
-	}*/
+		return empoyeesRepository.save(employees);
+	}
+
 }
